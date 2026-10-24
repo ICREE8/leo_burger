@@ -551,31 +551,51 @@
     </div>
   </div>
 
-  <!-- 3-BUTTON BOTTOM MOBILE DOCK -->
-  <div
-    class="fixed bottom-0 left-0 right-0 z-40 bg-black/95 backdrop-blur-lg border-t border-darkBorder p-2.5 px-4 md:hidden">
-    <div class="grid grid-cols-3 gap-2">
+  <!-- 5-BUTTON BOTTOM MOBILE DOCK (THUMB ZONE) -->
+  <nav aria-label="Navegación móvil inferior"
+    class="fixed bottom-0 left-0 right-0 z-40 bg-black/95 backdrop-blur-xl border-t border-darkBorder/90 py-2 px-2 pb-[max(0.6rem,env(safe-area-inset-bottom))] md:hidden shadow-[0_-8px_30px_rgba(0,0,0,0.85)]">
+    <div class="grid grid-cols-5 gap-1.5 max-w-md mx-auto">
+      <!-- 1. Promos -->
       <a href="#promos"
-        class="py-2.5 px-2 bg-darkCard rounded-xl border border-darkBorder text-center flex flex-col items-center justify-center active:scale-95 relative z-10 transition-colors hover:border-neonRed/50">
-        <i data-lucide="flame" class="w-4 h-4 text-neonRed mb-0.5"></i>
-        <span class="text-[10px] font-heading font-bold text-white uppercase">Promos</span>
+        class="py-2 px-1 bg-darkCard rounded-xl border border-darkBorder hover:border-neonRed/60 text-center flex flex-col items-center justify-center active:scale-95 relative z-10 transition-all">
+        <i data-lucide="flame" class="w-4 h-4 text-neonRed mb-1"></i>
+        <span class="text-[9px] font-heading font-black text-white uppercase tracking-tight">Promos</span>
       </a>
 
+      <!-- 2. Menú -->
+      <a href="#full-menu"
+        class="py-2 px-1 bg-darkCard rounded-xl border border-darkBorder hover:border-neonYellow/60 text-center flex flex-col items-center justify-center active:scale-95 relative z-10 transition-all">
+        <i data-lucide="utensils" class="w-4 h-4 text-neonYellow mb-1"></i>
+        <span class="text-[9px] font-heading font-black text-neonYellow uppercase tracking-tight">Menú</span>
+      </a>
+
+      <!-- 3. Carrito -->
       <button type="button" onclick="openCart()" id="dock-cart-btn"
-        class="py-2.5 px-2 bg-darkCard text-white rounded-xl border border-darkBorder text-center flex flex-col items-center justify-center active:scale-95 relative z-20 overflow-visible transition-all">
+        class="py-2 px-1 bg-darkCard text-white rounded-xl border border-darkBorder text-center flex flex-col items-center justify-center active:scale-95 relative z-20 overflow-visible transition-all">
         <span id="dock-cart-counter"
-          class="absolute -top-1.5 -right-1 z-40 bg-neonYellow text-black text-[10px] font-black px-1.5 min-w-[18px] h-[18px] flex items-center justify-center rounded-full ring-2 ring-black shadow-md pointer-events-none">0</span>
-        <i data-lucide="shopping-bag" class="w-4 h-4 mb-0.5"></i>
-        <span class="text-[10px] font-heading font-black uppercase">Carrito</span>
+          class="absolute -top-1.5 -right-0.5 z-40 bg-neonYellow text-black text-[9px] font-black px-1.5 min-w-[17px] h-[17px] flex items-center justify-center rounded-full ring-2 ring-black shadow-md pointer-events-none">0</span>
+        <i data-lucide="shopping-bag" class="w-4 h-4 mb-1"></i>
+        <span class="text-[9px] font-heading font-black uppercase tracking-tight">Carrito</span>
       </button>
 
+      <!-- 4. Pagar -->
       <button type="button" onclick="openPaymentModal()"
-        class="py-2.5 px-2 bg-darkCard rounded-xl border border-neonYellow/50 text-center flex flex-col items-center justify-center active:scale-95 relative z-10 transition-colors hover:border-neonYellow">
-        <i data-lucide="qr-code" class="w-4 h-4 text-neonYellow mb-0.5"></i>
-        <span class="text-[10px] font-heading font-bold text-neonYellow uppercase">Pagar</span>
+        class="py-2 px-1 bg-darkCard rounded-xl border border-neonYellow/40 hover:border-neonYellow text-center flex flex-col items-center justify-center active:scale-95 relative z-10 transition-all">
+        <i data-lucide="qr-code" class="w-4 h-4 text-neonYellow mb-1"></i>
+        <span class="text-[9px] font-heading font-black text-white uppercase tracking-tight">Pagar</span>
       </button>
+
+      <!-- 5. WhatsApp -->
+      <a href="https://wa.me/584243563183?text=Hola%20Leo%20Burger!%20Quisiera%20hacer%20un%20pedido%20o%20consultar%20el%20menú"
+        target="_blank" rel="noopener noreferrer" onclick="event.preventDefault(); handleDockWhatsApp();"
+        class="py-2 px-1 bg-darkCard rounded-xl border border-neonGreen/40 hover:border-neonGreen hover:bg-neonGreen/10 text-center flex flex-col items-center justify-center active:scale-95 relative z-10 transition-all">
+        <svg class="w-4 h-4 text-neonGreen fill-current mb-1" viewBox="0 0 24 24">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.456 5.711 1.457h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+        </svg>
+        <span class="text-[9px] font-heading font-black text-neonGreen uppercase tracking-tight">WhatsApp</span>
+      </a>
     </div>
-  </div>
+  </nav>
 
   <!-- Toast -->
   <div id="toast"
@@ -752,9 +772,9 @@
       const dockCartBtn = document.getElementById('dock-cart-btn');
       if (dockCartBtn) {
         if (totalItems > 0) {
-          dockCartBtn.className = "py-2.5 px-2 bg-neonRed text-white rounded-xl shadow-[0_0_20px_#FF2A00] border border-neonRed text-center flex flex-col items-center justify-center active:scale-95 relative z-20 overflow-visible transition-all";
+          dockCartBtn.className = "py-2 px-1 bg-neonRed text-white rounded-xl shadow-[0_0_20px_#FF2A00] border border-neonRed text-center flex flex-col items-center justify-center active:scale-95 relative z-20 overflow-visible transition-all";
         } else {
-          dockCartBtn.className = "py-2.5 px-2 bg-darkCard text-white rounded-xl border border-darkBorder text-center flex flex-col items-center justify-center active:scale-95 relative z-20 overflow-visible transition-all";
+          dockCartBtn.className = "py-2 px-1 bg-darkCard text-white rounded-xl border border-darkBorder text-center flex flex-col items-center justify-center active:scale-95 relative z-20 overflow-visible transition-all";
         }
       }
 
@@ -854,6 +874,16 @@
       message += `💳 *Método de pago:* [Pago Móvil Banplus / Zelle / Efectivo]`;
 
       window.open(`https://wa.me/${PHONE_NUMBER}?text=${message}`, '_blank');
+    }
+
+    // Direct WhatsApp thumb action: checks out if cart has items, or opens direct chat with Leo Burger
+    function handleDockWhatsApp() {
+      if (cart.length > 0) {
+        checkoutWhatsApp();
+      } else {
+        const greeting = encodeURIComponent("¡Hola Leo Burger! 🍔 Me gustaría hacer un pedido o consultar sobre el menú.");
+        window.open(`https://wa.me/${PHONE_NUMBER}?text=${greeting}`, '_blank');
+      }
     }
   </script>
 </body>
